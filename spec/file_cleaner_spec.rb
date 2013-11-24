@@ -5,7 +5,7 @@ require 'file_cleaner'
 describe FileCleaner do
 
   describe '.remove' do
-    before :all do
+    before :each do
       @file_path = 'spec/tmp/a_file'
       File.open(@file_path, 'w+') do |f|
         f.write "line 1\n"
@@ -22,6 +22,26 @@ describe FileCleaner do
       end
       subject { result }
       it { should eq(["line 1\n", "line 2\n", "line 3\n"]) }
+    end
+
+    context 'removing using pattern and range' do
+      before do
+        FileCleaner.remove(pattern: /Remove me/,
+                           file_path: @file_path,
+                           range: -1..1)
+      end
+      subject { result }
+      it { should eq(["line 3\n"])}
+    end
+
+    context 'removing using pattern and exclusive range' do
+      before do
+        FileCleaner.remove(pattern: /Remove me/,
+                           file_path: @file_path,
+                           range: -1...2)
+      end
+      subject { result }
+      it { should eq(["line 3\n"])}
     end
 
     def result
