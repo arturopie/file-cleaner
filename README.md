@@ -1,6 +1,6 @@
 # FileCleaner
 
-TODO: Write a gem description
+This library filters lines or group of lines from a file by using regular expressions and ranges.
 
 ## Installation
 
@@ -18,7 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To remove all lines of file `/path/to/file` that match regular expression `/Remove me/`:
+
+    require 'file_cleaner'
+    FileCleaner.remove(pattern: /Remove me/,
+                       file_path: /path/to/file)
+
+To remove lines that match regular expression, a line above and a line bellow:
+
+    FileCleaner.remove(pattern: /Remove me/,
+                       file_path: /path/to/file,
+                       range: -1..1)
 
 ## Contributing
 

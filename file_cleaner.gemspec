@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = FileCleaner::VERSION
   spec.authors       = ["Arturo Pie"]
   spec.email         = ["arturotd08@yahoo.ca"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Filters out lines of files}
+  spec.summary       = %q{This library filters lines or group of lines from a file by using regular expressions and ranges.}
+  spec.homepage      = "https://github.com/arturopie/file-cleaner"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
